@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/rpc.iml" filepath="$PROJECT_DIR$/rpc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rpc-basic/rpc-basic (1).iml" filepath="$PROJECT_DIR$/rpc-basic/rpc-basic (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/rpc-core/rpc-basic (2).iml" filepath="$PROJECT_DIR$/rpc-core/rpc-basic (2).iml" />
     </modules>
   </component>
 </project>

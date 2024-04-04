@@ -14,10 +14,10 @@ public class VertXHttpServer implements HttpServer{
         server.requestHandler(new VertxHttpHandler());
 
         server.listen(port, result -> {
-            if(result.succeeded()){
+            if (result.succeeded()) {
                 System.out.println("Server is listening on port: " + port);
-            }else{
-                System.out.println("vertx failed: "+ result.cause());
+            } else {
+                System.out.println("vertx failed: " + result.cause());
             }
         });
 

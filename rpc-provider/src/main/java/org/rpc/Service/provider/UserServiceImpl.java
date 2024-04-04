@@ -8,7 +8,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User getUser(User user){
-        System.out.println("getUser: " + user.getName());
+        System.out.println("provider getUser: " + user.getName());
         return user;
     }
 }

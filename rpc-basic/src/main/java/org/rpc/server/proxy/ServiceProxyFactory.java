@@ -8,9 +8,10 @@ import java.lang.reflect.Proxy;
 public class ServiceProxyFactory{
     /**
      * 根据接口动态获取代理对象
+     *
      * @param serviceClass
-     * @return
      * @param <T>
+     * @return
      */
     @SuppressWarnings("unchecked")
     public static <T> T getProxy(Class<T> serviceClass){

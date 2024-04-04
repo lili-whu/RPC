@@ -15,7 +15,7 @@ import org.rpc.service.UserService;
 public class UserServiceStaticProxy implements UserService{
 
     @Override
-    public User getUser(User user) {
+    public User getUser(User user){
         Serializer serializer = new JDKSerializer();
 
         // 发请求
@@ -25,17 +25,17 @@ public class UserServiceStaticProxy implements UserService{
                 .parameterType(new Class[]{User.class})
                 .args(new Object[]{user})
                 .build();
-        try{
+        try {
             byte[] rpcRequestBytes = serializer.serialize(rpcRequest);
             byte[] result;
-            try(HttpResponse response = HttpRequest.post("http://localhost:8080")
-                    .body(rpcRequestBytes).execute()){
+            try (HttpResponse response = HttpRequest.post("http://localhost:8080")
+                    .body(rpcRequestBytes).execute()) {
                 result = response.bodyBytes();
             }
             RPCResponse rpcResponse = serializer.deserialize(result, RPCResponse.class);
             return (User) rpcResponse.getData();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return null;

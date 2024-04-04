@@ -27,17 +27,17 @@ public class VertxHttpHandler implements Handler<HttpServerRequest>{
         System.out.println("Received Request: " + httpServerRequest.method() + " " + httpServerRequest.uri());
 
         // 处理Http请求
-        httpServerRequest.bodyHandler(body ->{
+        httpServerRequest.bodyHandler(body -> {
             byte[] bytes = body.getBytes();
             RPCRequest rpcRequest = null;
-            try{
+            try {
                 rpcRequest = serializer.deserialize(bytes, RPCRequest.class);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
             // 返回响应结果
             RPCResponse rpcResponse = new RPCResponse();
-            if(rpcRequest == null){
+            if (rpcRequest == null) {
                 rpcResponse.setMessage("null request");
                 doResponse(httpServerRequest, rpcResponse, serializer);
                 return;

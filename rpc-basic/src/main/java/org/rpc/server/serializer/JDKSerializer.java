@@ -22,7 +22,7 @@ public class JDKSerializer implements Serializer{
         ByteArrayInputStream input = new ByteArrayInputStream(bytes);
         try (ObjectInputStream stream = new ObjectInputStream(input)) {
             Object object = null;
-            if((object = stream.readObject()) != null){
+            if ((object = stream.readObject()) != null) {
                 // 存在泛型擦除问题, 不能使用instanceof去判断类型
                 return (T) object;
             }

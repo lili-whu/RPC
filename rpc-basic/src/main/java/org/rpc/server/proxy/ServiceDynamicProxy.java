@@ -26,18 +26,18 @@ public class ServiceDynamicProxy implements InvocationHandler{
                 .parameterType(method.getParameterTypes())
                 .args(args)
                 .build();
-        try{
+        try {
             byte[] rpcRequestBytes = serializer.serialize(rpcRequest);
             byte[] result;
             // 发送rpc请求
-            try(HttpResponse response = HttpRequest.post("http://localhost:8080")
-                    .body(rpcRequestBytes).execute()){
+            try (HttpResponse response = HttpRequest.post("http://localhost:8080")
+                    .body(rpcRequestBytes).execute()) {
                 result = response.bodyBytes();
             }
             //得到rpc响应
             RPCResponse rpcResponse = serializer.deserialize(result, RPCResponse.class);
             return rpcResponse.getData();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return null;
