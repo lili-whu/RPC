@@ -25,4 +25,5 @@
 ## 优化1: 全局配置加载
 通过定义PRCConfig类, 写入默认配置, 在application.properties覆盖默认配置, 通过Hutool-Props工具类完成Config加载, 通过双检锁单例模式创建单例Config对象
 
-## 优化2: 
+## 优化2: 提供mock服务
+定义全局配置, 是否使用mock, 然后在动态代理时读取mock配置, 并根据返回类型生成mock数据 

@@ -1,5 +1,8 @@
 package org.rpc.server.proxy;
 
+import org.rpc.server.RPCApplication;
+import org.rpc.server.config.RPCConfig;
+
 import java.lang.reflect.Proxy;
 
 /**
@@ -14,10 +17,21 @@ public class ServiceProxyFactory{
      */
     @SuppressWarnings("unchecked")
     public static <T> T getProxy(Class<T> serviceClass){
+        if(RPCApplication.getConfig().getMock()){
+            return getMockProxy(serviceClass);
+        }
         return (T) Proxy.newProxyInstance(
                 serviceClass.getClassLoader(),
                 new Class[]{serviceClass},
                 new ServiceDynamicProxy()
+        );
+    }
+    @SuppressWarnings("unchecked")
+    public static <T> T getMockProxy(Class<T> serviceClass){
+        return (T) Proxy.newProxyInstance(
+                serviceClass.getClassLoader(),
+                new Class[]{serviceClass},
+                new MockServiceProxy()
         );
     }
 }

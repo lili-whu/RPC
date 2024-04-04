@@ -5,47 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad8f79e3-7095-4f39-87bd-54764c0a21d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/截屏2024-04-04 14.46.07.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/HttpServer/HttpServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/HttpServer/VertXHttpServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/HttpServer/VertxHttpHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/RPCApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/config/RPCConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/constant/RPCConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/model/RPCRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/model/RPCResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/proxy/ServiceDynamicProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/proxy/ServiceProxyFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/proxy/UserServiceStaticProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/registry/LocalRegistry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/serializer/JDKSerializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/serializer/Serializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/utils/ConfigUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/test/java/org/rpc/server/utils/ConfigUtilsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/proxy/MockServiceProxy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/截屏2024-04-04 14.35.13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/HttpServer/HttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/HttpServer/HttpServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/HttpServer/VertXHttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/HttpServer/VertXHttpServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/HttpServer/VertxHttpHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/HttpServer/VertxHttpHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/proxy/ServiceDynamicProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/proxy/ServiceDynamicProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/proxy/ServiceProxyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/proxy/ServiceProxyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/proxy/UserServiceStaticProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/proxy/UserServiceStaticProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/registry/LocalRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/registry/LocalRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/serializer/JDKSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/serializer/JDKSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-basic/target/classes/org/rpc/server/proxy/ServiceProxyFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-basic/target/classes/org/rpc/server/proxy/ServiceProxyFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-basic/target/classes/org/rpc/server/registry/LocalRegistry.class" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-basic/target/classes/org/rpc/server/registry/LocalRegistry.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-consumer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-consumer/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-provider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-provider/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-provider/src/main/java/org/rpc/Service/provider/ProviderExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-provider/src/main/java/org/rpc/Service/provider/ProviderExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-provider/src/main/java/org/rpc/Service/provider/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-provider/src/main/java/org/rpc/Service/provider/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-provider/target/classes/org/rpc/Service/provider/ProviderExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-provider/target/classes/org/rpc/Service/provider/ProviderExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-provider/target/classes/org/rpc/Service/provider/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-provider/target/classes/org/rpc/Service/provider/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/config/RPCConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/config/RPCConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/proxy/ServiceProxyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/proxy/ServiceProxyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/target/classes/org/rpc/server/config/RPCConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/target/classes/org/rpc/server/config/RPCConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/target/classes/org/rpc/server/proxy/ServiceProxyFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/target/classes/org/rpc/server/proxy/ServiceProxyFactory.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,8 +145,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.UserConsumerExample" />
-        <item itemvalue="Application.ProviderExample" />
         <item itemvalue="JUnit.ConfigUtilsTest.testRPCConfigApp" />
+        <item itemvalue="Application.ProviderExample" />
         <item itemvalue="JUnit.ConfigUtilsTest.testUtils" />
       </list>
     </recent_temporary>
@@ -192,7 +160,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712196914069</updated>
       <workItem from="1712196915202" duration="16186000" />
-      <workItem from="1712215775682" duration="3758000" />
+      <workItem from="1712215775682" duration="5382000" />
     </task>
     <servers />
   </component>
