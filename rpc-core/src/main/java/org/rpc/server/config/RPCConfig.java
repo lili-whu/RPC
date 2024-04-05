@@ -2,7 +2,6 @@ package org.rpc.server.config;
 
 import lombok.Data;
 import org.rpc.server.serializer.Serializer;
-import org.rpc.server.serializer.SerializerKeys;
 
 @Data
 public class RPCConfig{
@@ -16,6 +15,6 @@ public class RPCConfig{
 
     private Boolean mock = false;
 
-    // 序列化器
-    private String serializer = SerializerKeys.JDK;
+    // 序列化器 jdk, hessian, json
+    private String serializer = "jdk";
 }

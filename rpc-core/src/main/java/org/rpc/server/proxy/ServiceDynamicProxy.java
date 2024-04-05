@@ -22,6 +22,7 @@ public class ServiceDynamicProxy implements InvocationHandler{
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable{
         RPCConfig config = RPCApplication.getConfig();
         Serializer serializer = SerializerFactory.getInstance(config.getSerializer());
+        System.out.println("使用序列化器: " + serializer.getClass().getName());
         // rpc请求
         RPCRequest rpcRequest = RPCRequest.builder()
                 .serviceName(method.getDeclaringClass().getName())

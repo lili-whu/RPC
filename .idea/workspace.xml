@@ -5,18 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad8f79e3-7095-4f39-87bd-54764c0a21d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/serializer/HessianSerializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/serializer/JsonSerializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/serializer/SerializerFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/serializer/SerializerKeys.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/resources/META-INF/rpc/custom" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/resources/META-INF/rpc/system" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/spi/SpiLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/resources/META-INF/rpc/system/org.rpc.server.serializer.Serializer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/resources/META-INF/rpc/user/org.rpc.server.serializer.Serializer" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/HttpServer/VertxHttpHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/HttpServer/VertxHttpHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/config/RPCConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/config/RPCConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/proxy/ServiceDynamicProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/proxy/ServiceDynamicProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/serializer/SerializerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/serializer/SerializerFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/serializer/SerializerKeys.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/src/main/resources/META-INF/rpc/system/serializer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/target/classes/org/rpc/server/HttpServer/VertxHttpHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/target/classes/org/rpc/server/HttpServer/VertxHttpHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/target/classes/org/rpc/server/config/RPCConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/target/classes/org/rpc/server/config/RPCConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/target/classes/org/rpc/server/proxy/ServiceDynamicProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/target/classes/org/rpc/server/proxy/ServiceDynamicProxy.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +60,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3": "junit.framework.TestCase",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "/Users/lili/Desktop/rpc",
+    "last_opened_file_path": "/Users/lili/Desktop/rpc/rpc-core/src/main/resources/META-INF/rpc/user",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -72,6 +75,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/rpc-core/src/main/resources/META-INF/rpc/user" />
       <recent name="$PROJECT_DIR$/rpc-core" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/rpc-basic/src/main/java/org/rpc/server/proxy" />
@@ -148,8 +152,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.UserConsumerExample" />
-        <item itemvalue="JUnit.ConfigUtilsTest.testRPCConfigApp" />
         <item itemvalue="Application.ProviderExample" />
+        <item itemvalue="JUnit.ConfigUtilsTest.testRPCConfigApp" />
         <item itemvalue="JUnit.ConfigUtilsTest.testUtils" />
       </list>
     </recent_temporary>
@@ -163,7 +167,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712196914069</updated>
       <workItem from="1712196915202" duration="16186000" />
-      <workItem from="1712215775682" duration="13153000" />
+      <workItem from="1712215775682" duration="17224000" />
     </task>
     <servers />
   </component>
