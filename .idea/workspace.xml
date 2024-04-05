@@ -5,15 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad8f79e3-7095-4f39-87bd-54764c0a21d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/proxy/MockServiceProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/serializer/HessianSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/serializer/JsonSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/serializer/SerializerFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/serializer/SerializerKeys.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/resources/META-INF/rpc/custom" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc-core/src/main/resources/META-INF/rpc/system" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/HttpServer/VertxHttpHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/HttpServer/VertxHttpHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/config/RPCConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/config/RPCConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/proxy/ServiceProxyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/proxy/ServiceProxyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-core/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-core/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-core/target/classes/org/rpc/server/config/RPCConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/target/classes/org/rpc/server/config/RPCConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-core/target/classes/org/rpc/server/proxy/ServiceProxyFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/target/classes/org/rpc/server/proxy/ServiceProxyFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/proxy/ServiceDynamicProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-core/src/main/java/org/rpc/server/proxy/ServiceDynamicProxy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="JUnit3 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -160,7 +163,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712196914069</updated>
       <workItem from="1712196915202" duration="16186000" />
-      <workItem from="1712215775682" duration="5382000" />
+      <workItem from="1712215775682" duration="13153000" />
     </task>
     <servers />
   </component>

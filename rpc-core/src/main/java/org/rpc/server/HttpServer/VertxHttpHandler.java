@@ -4,11 +4,15 @@ import io.vertx.core.Handler;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
+import org.rpc.server.RPCApplication;
+import org.rpc.server.config.RPCConfig;
 import org.rpc.server.model.RPCRequest;
 import org.rpc.server.model.RPCResponse;
 import org.rpc.server.registry.LocalRegistry;
 import org.rpc.server.serializer.JDKSerializer;
 import org.rpc.server.serializer.Serializer;
+import org.rpc.server.serializer.SerializerFactory;
+import org.rpc.server.utils.ConfigUtils;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -22,7 +26,8 @@ public class VertxHttpHandler implements Handler<HttpServerRequest>{
 
     @Override
     public void handle(HttpServerRequest httpServerRequest){
-        Serializer serializer = new JDKSerializer();
+        RPCConfig config = RPCApplication.getConfig();
+        Serializer serializer = SerializerFactory.getInstance(config.getSerializer());
 
         System.out.println("Received Request: " + httpServerRequest.method() + " " + httpServerRequest.uri());
 
