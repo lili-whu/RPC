@@ -14,6 +14,7 @@ import org.rpc.service.UserService;
 /**
  * 静态代理实现UserService服务代理
  */
+@Deprecated
 public class UserServiceStaticProxy implements UserService{
 
     @Override

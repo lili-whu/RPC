@@ -9,12 +9,20 @@ public class RPCConfig{
 
     private String version = "1.0";
 
-    private String serverHost = "localhost";
-
+    // 使用注册中心发现服务地址
+    @Deprecated
+    private String serverHost = "http://localhost";
+    // 使用注册中心发现服务地址
+    @Deprecated
     private Integer serverPort = 8080;
 
     private Boolean mock = false;
 
     // 序列化器 jdk, hessian, json
     private String serializer = "jdk";
+
+    /**
+     * 注册中心配置
+     */
+    private RegistryConfig registryConfig = new RegistryConfig();
 }

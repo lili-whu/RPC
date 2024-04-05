@@ -15,7 +15,7 @@ public class ServiceProxyFactory{
      * @return
      * @param <T>
      */
-    @SuppressWarnings("unchecked")
+//    @SuppressWarnings("unchecked")
     public static <T> T getProxy(Class<T> serviceClass){
         if(RPCApplication.getConfig().getMock()){
             return getMockProxy(serviceClass);
@@ -26,7 +26,7 @@ public class ServiceProxyFactory{
                 new ServiceDynamicProxy()
         );
     }
-    @SuppressWarnings("unchecked")
+//    @SuppressWarnings("unchecked")
     public static <T> T getMockProxy(Class<T> serviceClass){
         return (T) Proxy.newProxyInstance(
                 serviceClass.getClassLoader(),

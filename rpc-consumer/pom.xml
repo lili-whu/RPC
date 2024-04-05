@@ -25,11 +25,7 @@
         <version>1.18.30</version>
         <scope>provided</scope>
     </dependency>
-    <dependency>
-        <groupId>org.rpc</groupId>
-        <artifactId>rpc-basic</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </dependency>
+
 
 </dependencies>
 

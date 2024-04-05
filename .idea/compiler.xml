@@ -8,13 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="rpc-common" />
-        <module name="rpc-basic" />
         <module name="rpc-provider" />
         <module name="rpc-consumer" />
         <module name="rpc-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="rpc-basic" target="1.8" />
       <module name="rpc-basic (1)" target="1.8" />
       <module name="rpc-basic (2)" target="1.8" />
     </bytecodeTargetLevel>
