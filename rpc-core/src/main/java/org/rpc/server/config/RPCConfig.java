@@ -12,7 +12,7 @@ public class RPCConfig{
 
     // 使用注册中心发现服务地址
     @Deprecated
-    private String serverHost = "http://localhost";
+    private String serverHost = "localhost";
     // 使用注册中心发现服务地址
     @Deprecated
     private Integer serverPort = 8080;

@@ -1,7 +1,12 @@
 package org.rpc.server.proxy;
 
+import cn.hutool.core.util.IdUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
+import io.vertx.core.Vertx;
+import io.vertx.core.buffer.Buffer;
+import io.vertx.core.net.NetClient;
+import io.vertx.core.net.NetSocket;
 import org.rpc.model.User;
 import org.rpc.server.RPCApplication;
 import org.rpc.server.config.RPCConfig;
@@ -14,25 +19,29 @@ import org.rpc.server.loadBalancer.LoadBalancerFactory;
 import org.rpc.server.model.RPCRequest;
 import org.rpc.server.model.RPCResponse;
 import org.rpc.server.model.ServiceMetaInfo;
+import org.rpc.server.protocol.*;
 import org.rpc.server.registry.Registry;
 import org.rpc.server.registry.RegistryFactory;
 import org.rpc.server.serializer.JDKSerializer;
 import org.rpc.server.serializer.Serializer;
 import org.rpc.server.serializer.SerializerFactory;
+import org.rpc.server.tcp.VertxTcpClient;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * JDK动态代理
  */
 public class ServiceDynamicProxy implements InvocationHandler{
     @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable{
+    public Object invoke(Object proxy, Method method, Object[] args) {
         RPCConfig rpcConfig = RPCApplication.getConfig();
         Serializer serializer = SerializerFactory.getInstance(rpcConfig.getSerializer());
         System.out.println("使用序列化器: " + serializer.getClass().getName());
@@ -45,8 +54,8 @@ public class ServiceDynamicProxy implements InvocationHandler{
                 .args(args)
                 .build();
         try{
-            byte[] rpcRequestBytes = serializer.serialize(rpcRequest);
-            byte[] result;
+
+
             // 找到服务地址
             Registry registry = RegistryFactory.getInstance(rpcConfig.getRegistryConfig().getRegistry());
             ServiceMetaInfo serviceMetaInfo = new ServiceMetaInfo();
@@ -64,33 +73,17 @@ public class ServiceDynamicProxy implements InvocationHandler{
             ServiceMetaInfo usedServiceMetaInfo = loadBalancer.select(requestParams, serviceMetaInfos);
 
             // 重试机制 发送rpc请求
+            RPCResponse rpcResponse = VertxTcpClient.doRequest(rpcRequest, usedServiceMetaInfo);
+
             RetryStrategy retryStrategy = RetryStrategyFactory.getInstance(rpcConfig.getRetryStrategy());
-            RPCResponse rpcResponse = null;
 
-            //重试得到结果
-            try{
-                //            rpcResponse =  retryStrategy.doRetry(new Callable<RPCResponse>(){
-//                @Override
-//                public RPCResponse call() throws Exception{
-
-//                    return null;
-//                }
-//            })
-                HttpResponse response = HttpRequest.post(usedServiceMetaInfo.getServiceAddress())
-                        .body(rpcRequestBytes).execute();
-                result = response.bodyBytes();
-
-                //得到rpc响应, 反序列化
-                rpcResponse = serializer.deserialize(result, RPCResponse.class);
-            } catch (Exception e){
-                // 容错机制 先重试再容错
-                TolerantStrategy tolerantStrategy = TolerantStrategyFactory.getInstance(rpcConfig.getTolerantStrategy());
-                rpcResponse = tolerantStrategy.doTolerant(null, e);
-            }
             return rpcResponse.getData();
         }catch (Exception e){
+            // 容错机制 先重试再容错
+            TolerantStrategy tolerantStrategy = TolerantStrategyFactory.getInstance(rpcConfig.getTolerantStrategy());
+            RPCResponse rpcResponse = tolerantStrategy.doTolerant(null, e);
             System.err.println("rpc代理请求错误: " + e.getMessage());
+            return rpcResponse.getData();
         }
-        return null;
     }
 }

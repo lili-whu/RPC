@@ -9,6 +9,7 @@ import org.rpc.server.model.ServiceMetaInfo;
 import org.rpc.server.registry.LocalRegistry;
 import org.rpc.server.registry.Registry;
 import org.rpc.server.registry.RegistryFactory;
+import org.rpc.server.tcp.VertxTcpServer;
 import org.rpc.service.UserService;
 
 import java.util.concurrent.ExecutionException;
@@ -37,8 +38,10 @@ public class ProviderToRegistry{
             throw new RuntimeException(e);
         }
 
-        HttpServer httpServer = new VertXHttpServer();
-        httpServer.start(serviceMetaInfo.getServicePort());
+        VertxTcpServer vertxTcpServer = new VertxTcpServer();
+        vertxTcpServer.start(serviceMetaInfo.getServicePort());
+//        HttpServer httpServer = new VertXHttpServer();
+//        httpServer.start(serviceMetaInfo.getServicePort());
 
     }
 }

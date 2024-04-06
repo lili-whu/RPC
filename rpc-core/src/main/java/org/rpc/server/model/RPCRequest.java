@@ -1,15 +1,13 @@
 package org.rpc.server.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import org.rpc.server.constant.RPCConstant;
 
 import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class RPCRequest implements Serializable{
     // 服务名

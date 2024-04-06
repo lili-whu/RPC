@@ -72,12 +72,8 @@ public class EtcdRegistry implements Registry{
         localRegisterSet.remove(ETCD_ROOT + serviceMetaInfo.getServiceNodeKey());
     }
 
-    @Override
+
     public List<ServiceMetaInfo> serviceDiscovery(String serviceKey){
-        List<ServiceMetaInfo> cacheMetaInfo = registryServiceCache.readCache();
-        if(cacheMetaInfo != null && !cacheMetaInfo.isEmpty()){
-            return cacheMetaInfo;
-        }
         String prefix = ETCD_ROOT + serviceKey + "/";
         try{
             GetOption getOption = GetOption.builder().isPrefix(true).build();
@@ -89,13 +85,37 @@ public class EtcdRegistry implements Registry{
                 String value = keyValue.getValue().toString(StandardCharsets.UTF_8);
                 return JSONUtil.toBean(value, ServiceMetaInfo.class);
             }).collect(Collectors.toList());
-            // 写入服务的本地缓存
-            registryServiceCache.writeCache(serviceMetaInfoList);
             return serviceMetaInfoList;
         } catch (ExecutionException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
+
+
+//    @Override
+//    public List<ServiceMetaInfo> serviceDiscovery(String serviceKey){
+//        List<ServiceMetaInfo> cacheMetaInfo = registryServiceCache.readCache();
+//        if(cacheMetaInfo != null){
+//            return cacheMetaInfo;
+//        }
+//        String prefix = ETCD_ROOT + serviceKey + "/";
+//        try{
+//            GetOption getOption = GetOption.builder().isPrefix(true).build();
+//            List<KeyValue> keyValues = kvClient.get(ByteSequence.from(prefix, StandardCharsets.UTF_8), getOption)
+//                    .get().getKvs();
+//            List<ServiceMetaInfo> serviceMetaInfoList = keyValues.stream().map(keyValue -> {
+//                String key = keyValue.getKey().toString(StandardCharsets.UTF_8);
+//                watch(key);
+//                String value = keyValue.getValue().toString(StandardCharsets.UTF_8);
+//                return JSONUtil.toBean(value, ServiceMetaInfo.class);
+//            }).collect(Collectors.toList());
+//            // 写入服务的本地缓存
+//            registryServiceCache.writeCache(serviceMetaInfoList);
+//            return serviceMetaInfoList;
+//        } catch (ExecutionException | InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     @Override
     public void destroy(){
