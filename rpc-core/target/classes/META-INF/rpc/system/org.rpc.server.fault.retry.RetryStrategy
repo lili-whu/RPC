@@ -1,0 +1,2 @@
+no=org.rpc.server.fault.retry.NoRetryStrategy
+fixedInterval=org.rpc.server.fault.retry.FixedIntervalRetryStrategy

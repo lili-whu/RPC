@@ -1,0 +1,3 @@
+round=org.rpc.server.loadBalancer.RoundRobinLoadBalancer
+random=org.rpc.server.loadBalancer.RandomLoadBalancer
+consistentHash=org.rpc.server.loadBalancer.ConsistentHashLoadBalancer

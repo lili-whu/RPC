@@ -10,6 +10,8 @@ import java.util.concurrent.ExecutionException;
 public interface Registry{
     void init(RegistryConfig registryConfig);
 
+
+
     // 注册服务
     void register(ServiceMetaInfo serviceMetaInfo) throws ExecutionException, InterruptedException;
     // 取消服务
@@ -22,4 +24,7 @@ public interface Registry{
 
     // 心跳监测
     void heartBeat();
+
+    // 对本地缓存key进行监听
+    void watch(String serviceNodeKey);
 }

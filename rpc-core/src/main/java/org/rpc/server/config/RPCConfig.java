@@ -21,6 +21,11 @@ public class RPCConfig{
     // 序列化器 jdk, hessian, json
     private String serializer = "jdk";
 
+    // 重试策略 no, fixedInterval
+    private String retryStrategy = "fixedInterval";
+
+    // 负载均衡配置 consistentHash, random, round
+    private String loadBalancer = "consistentHash";
     /**
      * 注册中心配置
      */
