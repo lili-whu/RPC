@@ -7,6 +7,8 @@ import org.rpc.server.RPCApplication;
 import org.rpc.server.config.RPCConfig;
 import org.rpc.server.fault.retry.RetryStrategy;
 import org.rpc.server.fault.retry.RetryStrategyFactory;
+import org.rpc.server.fault.tolerant.TolerantStrategy;
+import org.rpc.server.fault.tolerant.TolerantStrategyFactory;
 import org.rpc.server.loadBalancer.LoadBalancer;
 import org.rpc.server.loadBalancer.LoadBalancerFactory;
 import org.rpc.server.model.RPCRequest;
@@ -66,21 +68,25 @@ public class ServiceDynamicProxy implements InvocationHandler{
             RPCResponse rpcResponse = null;
 
             //重试得到结果
-//            rpcResponse =  retryStrategy.doRetry(new Callable<RPCResponse>(){
+            try{
+                //            rpcResponse =  retryStrategy.doRetry(new Callable<RPCResponse>(){
 //                @Override
 //                public RPCResponse call() throws Exception{
 
 //                    return null;
 //                }
 //            })
+                HttpResponse response = HttpRequest.post(usedServiceMetaInfo.getServiceAddress())
+                        .body(rpcRequestBytes).execute();
+                result = response.bodyBytes();
 
-            HttpResponse response = HttpRequest.post(usedServiceMetaInfo.getServiceAddress())
-                    .body(rpcRequestBytes).execute();
-            result = response.bodyBytes();
-
-            //得到rpc响应, 反序列化
-            rpcResponse = serializer.deserialize(result, RPCResponse.class);
-
+                //得到rpc响应, 反序列化
+                rpcResponse = serializer.deserialize(result, RPCResponse.class);
+            } catch (Exception e){
+                // 容错机制 先重试再容错
+                TolerantStrategy tolerantStrategy = TolerantStrategyFactory.getInstance(rpcConfig.getTolerantStrategy());
+                rpcResponse = tolerantStrategy.doTolerant(null, e);
+            }
             return rpcResponse.getData();
         }catch (Exception e){
             System.err.println("rpc代理请求错误: " + e.getMessage());

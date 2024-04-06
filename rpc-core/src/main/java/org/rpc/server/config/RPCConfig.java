@@ -1,6 +1,7 @@
 package org.rpc.server.config;
 
 import lombok.Data;
+import org.rpc.server.fault.tolerant.TolerantStrategy;
 import org.rpc.server.serializer.Serializer;
 
 @Data
@@ -26,6 +27,9 @@ public class RPCConfig{
 
     // 负载均衡配置 consistentHash, random, round
     private String loadBalancer = "consistentHash";
+
+    // 容错配置
+    private String tolerantStrategy = "failSafe";
     /**
      * 注册中心配置
      */
